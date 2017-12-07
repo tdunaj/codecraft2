@@ -1,0 +1,39 @@
+<form novalidate [formGroup]="myform" 
+      class="card text-white bg-secondary mb-3" 
+      style="max-width: 30rem;">
+  <div class="card-body">
+    <h4 class="card-title">Create Joke</h4>
+    <div class="form-group">
+      <input type="text"
+            class="form-control"
+            formControlName="setup"
+            placeholder="Enter the setup"
+            [ngClass]="{
+              'is-invalid': setup.invalid && (setup.dirty || setup.touched),
+              'is-valid': setup.valid && (setup.dirty || setup.touched)
+            }">
+      <div class="invalid-feedback">Setup is required</div>
+    </div>    
+    <!--
+      (ngSubmit)="onSubmit()"
+    <pre>Touched? {{ myform.controls.setup.touched }} </pre>
+    <pre>Valid? {{ myform.controls.setup.valid }} </pre>
+    -->
+    <div class="form-group">
+      <input type="text"
+            class="form-control"
+            formControlName="punchline"
+            placeholder="Enter the punchline"
+            [ngClass]="{
+              'is-invalid': punchline.invalid && (punchline.dirty || punchline.touched),
+              'is-valid': punchline.valid && (punchline.dirty || punchline.touched)
+            }">
+      <div class="invalid-feedback">Punchline is required</div>
+    </div>
+    <button type="button" 
+            class="btn btn-primary" 
+            [disabled]="myform.invalid"
+            (click)="createJoke(setup.value, punchline.value)">Create</button>
+    <pre> {{ myform.value | json }} </pre>
+  </div>
+</form>

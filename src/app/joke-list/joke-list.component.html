@@ -1,0 +1,7 @@
+<joke-form (jokeCreated)="jokeService.addJoke($event)"></joke-form>
+<app-joke-model-form (jokeCreated)="jokeService.addJoke($event)"></app-joke-model-form>
+<joke *ngFor="let j of jokeService.jokes" [joke]="j" (jokeDeleted)="jokeService.deleteJoke($event)"></joke>
+<!--
+    <app-joke-model-form (jokeCreated)="addJoke($event)"></app-joke-model-form>
+    <joke *ngFor="let j of jokes" [joke]="j" (jokeDeleted)="deleteJoke($event)"></joke> 
+-->

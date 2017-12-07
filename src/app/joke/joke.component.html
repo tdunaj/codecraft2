@@ -1,0 +1,17 @@
+<div class="card mb-3" style="max-width: 30rem;" 
+[appCardHover]="{querySelector:'.card-text'}">
+  <div class="card-body">
+    <h4 class="card-title">
+      {{data.setup | clean:'boo,damn,hell' }}
+    </h4>
+    <p class="card-text" [style.display]="'none'">{{data.punchline}}</p>
+    <a (click)="data.toggle()"
+      class="btn btn-warning">Tell Me
+    </a>
+    <a (click)="deleteItem()"
+      class="btn btn-danger">Delete
+    </a>
+  </div>
+</div>
+
+<!-- <p class="card-text" [hidden]="data.hide">{{data.punchline}}</p> //-->
